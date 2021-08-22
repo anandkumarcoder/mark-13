@@ -43,7 +43,7 @@ function converDateToString(date) {
     } else {
         dateString.month = date.month.toString();
     }
-    dateString.month = date.year.toString();
+    dateString.year = date.year.toString();
     
 
     return dateString;
@@ -56,12 +56,12 @@ function getAllDatesFromat( date){
 
     var ddmmyyyy = dateString.day + dateString.month + dateString.year;
     var mmddyyyy  = dateString.month + dateString.day  + dateString.year;
-    var yyyymmdd  = dateString.year + dateString.month + dateString.mday;
+    var yyyymmdd  = dateString.year + dateString.month + dateString.day;
     var ddmmyy = dateString.day + dateString.month + dateString.year;
     var mmddyy = dateString.month + dateString.day  + dateString.year;
     var yymmdd = dateString.year + dateString.month + dateString.day;
 
-    return [ ddmmyy , mmddyy , yyyymmdd , ddmmyy , mmddyy , yymmdd ];
+    return [ ddmmyyyy , mmddyyyy , yyyymmdd , ddmmyy , mmddyy , yymmdd ];
 }
 
 var date = {
