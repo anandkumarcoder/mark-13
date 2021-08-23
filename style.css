@@ -7,12 +7,19 @@
 }
 
 :root{
-    --primary-color: #00b4d8;
+    --primary-color: #006d77;
+
+   /* // 006d77 ff595e */
+
+
+
 }
 
 body{
     font-family: 'Concert One', cursive;
     text-align: center;
+    font-size: 35px;
+    color: var(--primary-color);
 }
 
 /* main */
@@ -20,7 +27,7 @@ body{
 
 h2{
     padding: 1rem;
-    font-size: x-large;
+    font-size: 60px;
 }
 .input-label{
     display: block;
@@ -29,17 +36,21 @@ h2{
 }
 #bday-input{
     border-radius: 15px;
-    font-size: 15px;
+    font-size: 20px;
     border:  5px solid var(--primary-color);
+    height: 6ch;
+    width:30ch;
 
 }
 
 
 #show-btn{
     display: block;
-    margin: 1rem auto;
-    padding: 0.3rem 1rem;
-    width: 10wh;
+    margin: 2rem auto;
+    padding: 1.5rem 3rem;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     background-color: var(--primary-color);
     border-radius: 20px;
     cursor: pointer;
@@ -51,10 +62,15 @@ footer{
     bottom: 0;
     display: block;
     width: 100%;
-    font-size: x-large;
+    font-size: 40px;
 }
 
 a{
     text-decoration: none;
-    color: black;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.fa{
+    color: var(--primary-color);
 }
