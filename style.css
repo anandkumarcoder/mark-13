@@ -18,7 +18,7 @@
 body{
     font-family: 'Concert One', cursive;
     text-align: center;
-    font-size: 35px;
+    font-size: 25px;
     color: var(--primary-color);
 }
 
@@ -27,7 +27,7 @@ body{
 
 h2{
     padding: 1rem;
-    font-size: 60px;
+    font-size: 40px;
 }
 .input-label{
     display: block;
@@ -36,10 +36,10 @@ h2{
 }
 #bday-input{
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 15px;
     border:  5px solid var(--primary-color);
     height: 6ch;
-    width:30ch;
+    width25ch;
 
 }
 
@@ -49,7 +49,7 @@ h2{
     margin: 2rem auto;
     padding: 1.5rem 3rem;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     background-color: var(--primary-color);
     border-radius: 20px;
@@ -62,7 +62,7 @@ footer{
     bottom: 0;
     display: block;
     width: 100%;
-    font-size: 40px;
+    font-size: 25px;
 }
 
 a{
