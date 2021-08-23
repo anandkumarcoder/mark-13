@@ -51,6 +51,8 @@ function converDateToString(date) {
 }
 
 
+//-- ex 04 -formating the string of date from previous fucntion
+
 function getAllDatesFromat( date){
     var dateString = converDateToString(date)
 
@@ -64,10 +66,39 @@ function getAllDatesFromat( date){
     return [ ddmmyyyy , mmddyyyy , yyyymmdd , ddmmyy , mmddyy , yymmdd ];
 }
 
+
+// console.log(getAllDatesFromat(date))
+
+//----
+
+//-- ex 05 checking palindrome for all date formats
+
+function isPalindromeForAllDatesFormat (date)
+{
+    var listOfAllDates = getAllDatesFromat(date);
+
+    var flag = false;
+
+    for ( var i =0; i < listOfAllDates.length; i++ ){
+        if(isPalindrome(listOfAllDates[i])){
+            flag = true;
+            break;
+        }
+    }
+    return flag
+}
+
 var date = {
-    day: 5,
-    month: 3,
+    day: 2,
+    month: 2,
     year: 2020
 }
 
-console.log(getAllDatesFromat(date))
+// console.log(isPalindromeForAllDatesFormat(date))
+
+//----
+
+//-- 06 find the next palindrome datees 
+
+//-- to get hte next date
+
