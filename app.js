@@ -158,15 +158,28 @@ function toGetNextDate(date) {
     };
 }
 
-
+function getNextPalindromeDate(date){
+    var ctr = 0;
+    var nextDate = toGetNextDate(date);
+  
+    while(1){
+      ctr++;
+      var isPalindrome = isPalindromeForAllDatesFormat(nextDate);
+      if(isPalindrome){
+        break;
+      }
+      nextDate = toGetNextDate(nextDate);
+    }
+    return [ctr, nextDate];
+  }
 
 
 var date = {
-    day: 29,
-    month: 2,
+    day: 31,
+    month: 12,
     year: 2020
 };
 
 
 
-console.log(toGetNextDate(date));
+console.log( getNextPalindromeDate(date));
