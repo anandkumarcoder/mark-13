@@ -44,26 +44,26 @@ function converDateToString(date) {
         dateString.month = date.month.toString();
     }
     dateString.year = date.year.toString();
-    
+
 
     return dateString;
-    
+
 }
 
 
 //-- ex 04 -formating the string of date from previous fucntion
 
-function getAllDatesFromat( date){
+function getAllDatesFromat(date) {
     var dateString = converDateToString(date)
 
     var ddmmyyyy = dateString.day + dateString.month + dateString.year;
-    var mmddyyyy  = dateString.month + dateString.day  + dateString.year;
-    var yyyymmdd  = dateString.year + dateString.month + dateString.day;
+    var mmddyyyy = dateString.month + dateString.day + dateString.year;
+    var yyyymmdd = dateString.year + dateString.month + dateString.day;
     var ddmmyy = dateString.day + dateString.month + dateString.year;
-    var mmddyy = dateString.month + dateString.day  + dateString.year;
+    var mmddyy = dateString.month + dateString.day + dateString.year;
     var yymmdd = dateString.year + dateString.month + dateString.day;
 
-    return [ ddmmyyyy , mmddyyyy , yyyymmdd , ddmmyy , mmddyy , yymmdd ];
+    return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
 }
 
 
@@ -73,14 +73,13 @@ function getAllDatesFromat( date){
 
 //-- ex 05 checking palindrome for all date formats
 
-function isPalindromeForAllDatesFormat (date)
-{
+function isPalindromeForAllDatesFormat(date) {
     var listOfAllDates = getAllDatesFromat(date);
 
     var flag = false;
 
-    for ( var i =0; i < listOfAllDates.length; i++ ){
-        if(isPalindrome(listOfAllDates[i])){
+    for (var i = 0; i < listOfAllDates.length; i++) {
+        if (isPalindrome(listOfAllDates[i])) {
             flag = true;
             break;
         }
@@ -88,11 +87,7 @@ function isPalindromeForAllDatesFormat (date)
     return flag
 }
 
-var date = {
-    day: 2,
-    month: 2,
-    year: 2020
-}
+
 
 // console.log(isPalindromeForAllDatesFormat(date))
 
@@ -100,5 +95,78 @@ var date = {
 
 //-- 06 find the next palindrome datees 
 
-//-- to get hte next date
+//-- leap year check
 
+function isLeapYear(year) {
+    if (year % 4000 === 0) {
+        return true;
+    }
+    if (year % 100 === 0) {
+        return false;
+    }
+    if (year % 4 === 0) {
+        return true;
+    }
+    return false;
+}
+
+// console.log (isLeapYear(2021))
+
+//----
+
+//----
+
+function toGetNextDate(date) {
+    var day = date.day + 1;
+    var month = date.month;
+    var year = date.year;
+
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if (month === 2) {
+        if (isLeapYear(year)) {
+            if (day > 29) {
+                day = 1;
+                month++;
+            }
+        } else {
+            if (day > 28) {
+                day = 1;
+                month++;
+            }
+        }
+    } else {
+        if (day > daysInMonth[month - 1]) {
+            day = 1;
+            month++;
+
+        }
+
+        if (month > 12) {
+            month = 1;
+            year++;
+        }
+
+
+
+    }
+    return {
+        day: day,
+        month: month,
+        year: year
+
+    };
+}
+
+
+
+
+var date = {
+    day: 29,
+    month: 2,
+    year: 2020
+};
+
+
+
+console.log(toGetNextDate(date));
