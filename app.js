@@ -59,9 +59,9 @@ function getAllDatesFromat(date) {
     var ddmmyyyy = dateString.day + dateString.month + dateString.year;
     var mmddyyyy = dateString.month + dateString.day + dateString.year;
     var yyyymmdd = dateString.year + dateString.month + dateString.day;
-    var ddmmyy = dateString.day + dateString.month + dateString.year;
-    var mmddyy = dateString.month + dateString.day + dateString.year;
-    var yymmdd = dateString.year + dateString.month + dateString.day;
+    var ddmmyy = dateString.day + dateString.month + dateString.year.slice(-2);
+    var mmddyy = dateString.month + dateString.day + dateString.year.slice(-2);
+    var yymmdd = dateString.year.slice(-2) + dateString.month + dateString.day;
 
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd];
 }
@@ -174,12 +174,48 @@ function getNextPalindromeDate(date){
   }
 
 
-var date = {
-    day: 31,
-    month: 12,
-    year: 2020
-};
+// var date = {
+//     day: 31,
+//     month: 12,
+//     year: 2020
+// };
 
 
 
-console.log( getNextPalindromeDate(date));
+// console.log( getNextPalindromeDate(date));
+
+const bdayInput = document.querySelector("#bday-input");
+const showButton = document.querySelector("#show-btn");
+const outputDiv = document.querySelector("#output");
+
+
+function clickHandler(){
+    var bdayString = bdayInput.value;
+
+    if(bdayInput !== ""){
+        var listOfAllDates = bdayString.split("-");
+        var date = {
+            day: Number(listOfAllDates[2]),
+            month: Number (listOfAllDates[1]),
+            year: Number(listOfAllDates[0])
+        };
+         var isPalindrome = isPalindromeForAllDatesFormat(date);
+
+         if(isPalindrome){
+             outputDiv.innerText = "yay ! your birthday is a palindrome"
+         }
+
+         else {
+             var[ ctr , nextDate] = getNextPalindromeDate(date);
+             outputDiv.innerText = `the next palindrome date is ${nextDate.day} ${nextDate.month} ${nextDate.year}, you misse dit by ${ctr} days`
+         }
+
+
+
+    }
+}
+
+
+
+
+showButton.addEventListener("click", clickHandler)
