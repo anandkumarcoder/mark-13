@@ -39,7 +39,7 @@ h2{
     font-size: 15px;
     border:  5px solid var(--primary-color);
     height: 6ch;
-    width25ch;
+    width:25ch;
 
 }
 
@@ -47,7 +47,7 @@ h2{
 #show-btn{
     display: block;
     margin: 2rem auto;
-    padding: 1.5rem 3rem;
+    padding: 1rem 2rem;
     color: white;
     font-size: 15px;
     font-weight: bold;
