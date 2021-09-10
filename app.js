@@ -158,20 +158,20 @@ function toGetNextDate(date) {
     };
 }
 
-function getNextPalindromeDate(date){
+function getNextPalindromeDate(date) {
     var ctr = 0;
     var nextDate = toGetNextDate(date);
-  
-    while(1){
-      ctr++;
-      var isPalindrome = isPalindromeForAllDatesFormat(nextDate);
-      if(isPalindrome){
-        break;
-      }
-      nextDate = toGetNextDate(nextDate);
+
+    while (1) {
+        ctr++;
+        var isPalindrome = isPalindromeForAllDatesFormat(nextDate);
+        if (isPalindrome) {
+            break;
+        }
+        nextDate = toGetNextDate(nextDate);
     }
     return [ctr, nextDate];
-  }
+}
 
 
 // var date = {
@@ -189,26 +189,26 @@ const showButton = document.querySelector("#show-btn");
 const outputDiv = document.querySelector("#output");
 
 
-function clickHandler(){
+function clickHandler() {
     var bdayString = bdayInput.value;
 
-    if(bdayInput !== ""){
+    if (bdayInput.value == null ||  bdayInput.value == ""){
+        outputDiv.innerText = "please select the date"
+    } else if (bdayInput !== "") {
         var listOfAllDates = bdayString.split("-");
         var date = {
             day: Number(listOfAllDates[2]),
-            month: Number (listOfAllDates[1]),
+            month: Number(listOfAllDates[1]),
             year: Number(listOfAllDates[0])
         };
-         var isPalindrome = isPalindromeForAllDatesFormat(date);
+        var isPalindrome = isPalindromeForAllDatesFormat(date);
 
-         if(isPalindrome){
-             outputDiv.innerText = "yay ! your birthday is a palindrome"
-         }
-
-         else {
-             var[ ctr , nextDate] = getNextPalindromeDate(date);
-             outputDiv.innerText = `the next palindrome date is ${nextDate.day} ${nextDate.month} ${nextDate.year}, you misse dit by ${ctr} days`
-         }
+        if (isPalindrome) {
+            outputDiv.innerText = "yay ! your birthday is a palindrome"
+        } else {
+            var [ctr, nextDate] = getNextPalindromeDate(date);
+            outputDiv.innerText = `the next palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you misse dit by ${ctr} days`
+        }
 
 
 
